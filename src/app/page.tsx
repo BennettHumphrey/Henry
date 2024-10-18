@@ -1,4 +1,4 @@
-import { urlFor } from "@/sanity/lib/image";
+// import { urlFor } from "@/sanity/lib/image";
 import { getProducts } from "@/sanity/lib/products";
 import { Product } from "@/sanity/schemaTypes/product";
 import React from "react";
