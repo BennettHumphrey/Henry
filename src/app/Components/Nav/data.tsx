@@ -3,8 +3,8 @@ const Tiktok = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="inherit"
-        height="inherit"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
       >
         <path
@@ -20,8 +20,8 @@ const Instagram = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="inherit"
-        height="inherit"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
       >
         <path
@@ -37,8 +37,8 @@ const Facebook = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="inherit"
-        height="inherit"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
       >
         <path
@@ -54,8 +54,8 @@ const Whatsapp = () => {
     <div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="inherit"
-        height="inherit"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
       >
         <path

@@ -6,6 +6,6 @@ export async function getProducts() {
   const query = groq`*[_type == "product"]`;
 
   const products = await client.fetch(query);
-
+  console.log(products)
   return products;
 }
