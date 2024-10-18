@@ -6,13 +6,13 @@ import { navOptions, navSocials } from "./data";
 
 const Nav = () => {
   return (
-    <div className="flex flex-col z-50 w-full border-b border-b-gray-300 fixed sm:flex-row">
-      <div className="sm:basis-1/2">
+    <div className="flex flex-col z-50 w-full bg-bg-light border-b border-b-gray-300 fixed sm:flex-row">
+      <div className="sm:basis-1/3">
         <h1 className="text-2xl tracking-widest font-bold text-center sm:pl-4">
           HENRY
         </h1>
       </div>
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full basis-2/3 sm:justify-around">
         <div className="flex items-center pl-4 gap-4">
           {navOptions.map((nav, index) => (
             <div className="group" key={index}>
