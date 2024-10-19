@@ -68,24 +68,30 @@ const Whatsapp = () => {
 };
 
 export const navOptions = [
-  { title: "Home", path: "/products/hombre" },
-  { title: "Pricing", path: "/products/mujeres" },
+  // { title: "Hombres", path: "/products/hombre" },
+  // { title: "Mujeres", path: "/products/mujeres" },
+  { title: "", path: "/" },
+  { title: "", path: "/" },
 ];
 
 export const navSocials = [
   {
+    name: 'instagram',
     icon: <Instagram />,
     path: "/",
   },
   {
+    name: 'facebook',
     icon: <Facebook />,
     path: "/",
   },
   {
+    name: 'tiktok',
     icon: <Tiktok />,
     path: "/",
   },
   {
+    name: 'whatsapp',
     icon: <Whatsapp />,
     path: "/",
   },

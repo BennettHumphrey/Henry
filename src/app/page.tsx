@@ -12,8 +12,8 @@ const Home = async () => {
   };
 
   return (
-    <div className="top-[100px] relative">
-      <h2 className="fold-bold tracking-widest text-center text-3xl pb-10">
+    <div className="top-[100px] relative pb-20">
+      <h2 className="fold-bold tracking-widest text-center text-3xl md:text-5xl pb-10">
         NUESTROS PRODUCTOS
       </h2>
       <div className="flex flex-col gap-5 px-6 justify-center flex-wrap sm:flex-row">
