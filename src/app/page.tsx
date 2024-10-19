@@ -23,7 +23,7 @@ const Home = async () => {
             key={index}
           >
             <Link
-              href={"/"}
+              href={`/${product.path}`}
               className="bg-accent group relative flex items-center rounded-lg justify-center w-[90vw] h-[90vw] sm:w-[40vw] sm:h-[40vw] md:w-[28vw] md:h-[28vw] lg:w-[20vw] lg:h-[20vw]"
             >
               <img

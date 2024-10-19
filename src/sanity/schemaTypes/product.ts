@@ -2,6 +2,7 @@ import { defineField, defineType } from "sanity";
 
 export interface Product {
   title: string;
+  path: string;
   description: string;
   productImages: { asset: { _ref: string; _type: string } }[];
   price: number;
@@ -20,6 +21,12 @@ export const productSchema = defineType({
       name: 'title',
       title: 'Título del Producto',
       description: 'El nombre del producto.',
+      type: 'string',
+    }),
+    defineField({
+      name: 'path',
+      title: 'Ruta del Producto',
+      description: 'La ruta no puede tener espacios ni mayúsculas.',
       type: 'string',
     }),
     defineField({
