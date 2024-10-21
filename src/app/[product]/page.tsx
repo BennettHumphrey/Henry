@@ -1,8 +1,5 @@
 "use client"
 
-import { getIndividualProduct } from "@/sanity/lib/individualProduct";
-import { Product } from "@/sanity/schemaTypes/product";
-import { Button } from "flowbite-react";
 import React, { FC, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { productsState } from "../Recoil";
