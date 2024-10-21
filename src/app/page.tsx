@@ -1,15 +1,33 @@
-// import { urlFor } from "@/sanity/lib/image";
-import { getProducts } from "@/sanity/lib/products";
-import { Product } from "@/sanity/schemaTypes/product";
-import Link from "next/link";
-import React from "react";
+// app/page.tsx (or Home.tsx)
+'use client';
 
-const Home = async () => {
-  const products: Product[] = await getProducts();
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import { getProducts } from '@/sanity/lib/products';
+import { Product } from '@/sanity/schemaTypes/product';
+import Link from 'next/link';
+import { productsState } from './Recoil';
+
+const Home = () => {
+  const [products, setProducts] = useRecoilState(productsState);
+
+  useEffect(() => {
+    // Fetch products and set the Recoil state
+    const fetchProducts = async () => {
+      const productsData: Product[] = await getProducts();
+      setProducts(productsData);
+    };
+
+    fetchProducts();
+  }, [setProducts]);
 
   const getRandomCat = () => {
     return Math.floor(Math.random() * 41) + 800;
   };
+
+  useEffect(() => {
+    console.log('products recoil state: ', products)
+  }, [products])
 
   return (
     <div className="top-[100px] relative pb-20">
@@ -27,7 +45,6 @@ const Home = async () => {
               className="bg-accent group relative flex items-center rounded-lg justify-center w-[90vw] h-[90vw] sm:w-[40vw] sm:h-[40vw] md:w-[28vw] md:h-[28vw] lg:w-[20vw] lg:h-[20vw]"
             >
               <img
-                // src={urlFor(product.productImages[0]).toString()}
                 src={`https://placecats.com/${getRandomCat()}/${getRandomCat()}`}
                 alt="Main Product Image"
                 className="absolute inset-0 m-auto h-[90%] w-[90%] rounded-md group-hover:scale-110 group-hover:rounded-lg duration-300"
@@ -40,23 +57,9 @@ const Home = async () => {
               </div>
             </Link>
             <h3 className="text-start w-full pl-8">{product.title}</h3>
-            <div className="h-px w-4/5 bg-gray-300" />
             <p className="text-start w-full pl-8">
               Precio: <span className="font-bold">S/ {product.price}</span>
             </p>
-            <div className="h-px w-4/5 mt-4 mb-6 bg-gray-800" />
-            <div className="flex gap-3 justify-start w-full pl-8">
-              {product.productImages.map((image, index) => (
-                <div className="w-[60px] h-[60px]" key={index}>
-                  <img
-                    className="w-full h-full object-cover"
-                    // src={urlFor(image).toString()}
-                    src={`https://placecats.com/${getRandomCat()}/${getRandomCat()}`}
-                    alt={`Product Image ${index + 1}`}
-                  />
-                </div>
-              ))}
-            </div>
           </div>
         ))}
       </div>

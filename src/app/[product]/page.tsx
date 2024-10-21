@@ -4,29 +4,25 @@ import { getIndividualProduct } from "@/sanity/lib/individualProduct";
 import { Product } from "@/sanity/schemaTypes/product";
 import { Button } from "flowbite-react";
 import React, { FC, useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { productsState } from "../Recoil";
 
 type Props = {
   params: { product: string };
 };
 
 const ProductDetails: FC<Props> = ({ params }) => {
-  const [product, setProduct] = useState<Product | null>(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const fetchedProduct = await getIndividualProduct(params.product);
-      setProduct(fetchedProduct);
-      console.log('fetchedProduct:', fetchedProduct)
-    };
+  const [products, setProducts] = useRecoilState(productsState);
 
-    fetchProduct();
-  }, [params.product]);
+  const product = products.find((p) => p.path === params.product);
+  // console.log('product in [product]:', product)
+
 
   return (
     <div className="relative top-[100px] text-black">
       {product ? (
         <div>
-          <Button>Test</Button>
           <p>{product.title}</p>
         </div>
       ) : (

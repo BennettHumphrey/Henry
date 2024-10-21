@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "./Components/Nav/Nav";
+import RecoilRootWrapper from "./Components/RecoilRootWrapper";
 
 
 
@@ -16,10 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-bg-light text-text-dark">
-        <Nav  />
-        {children}
-      </body>
+      <RecoilRootWrapper>
+        <body className="bg-bg-light text-text-dark">
+          <Nav  />
+          {children}
+        </body>
+      </RecoilRootWrapper>
     </html>
   );
 }
