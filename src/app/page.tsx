@@ -2,18 +2,14 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { getProducts } from '@/sanity/lib/products';
+import { useRecoilValue } from 'recoil';
 import { Product } from '@/sanity/schemaTypes/product';
 import Link from 'next/link';
 import { productsState } from './Recoil';
-
-export const getRandomCat = () => {
-  return Math.floor(Math.random() * 41) + 800;
-};
+import { urlFor } from '@/sanity/lib/image';
 
 const Home = () => {
-  const [products, setProducts] = useRecoilState(productsState);
+  const products = useRecoilValue(productsState);
 
 
 
@@ -38,7 +34,7 @@ const Home = () => {
               className="bg-accent group relative flex items-center rounded-lg justify-center w-[90vw] h-[90vw] sm:w-[40vw] sm:h-[40vw] md:w-[28vw] md:h-[28vw] lg:w-[20vw] lg:h-[20vw]"
             >
               <img
-                src={`https://placecats.com/${getRandomCat()}/${getRandomCat()}`}
+                src={product.productImages?.[0]?.image ? urlFor(product.productImages[0].image).url() : ''}
                 alt="Main Product Image"
                 className="absolute inset-0 m-auto h-[90%] w-[90%] rounded-md group-hover:scale-110 group-hover:rounded-lg duration-300"
               />

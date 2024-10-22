@@ -85,7 +85,7 @@ const ProductDetails: FC<Props> = ({ params }) => {
               <div className="flex flex-wrap gap-4 pb-8">
                 {uniqueColorImages.map((imageObj: Image, index) => (
                   <div
-                    className="w-16 h-16"
+                    className="w-16 h-16 hover:cursor-pointer hover:scale-105 duration-200"
                     key={index}
                     onClick={() => setCurrentColor(imageObj.color)}
                   >

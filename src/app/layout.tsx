@@ -3,6 +3,7 @@ import "./globals.css";
 import Nav from "./Components/Nav/Nav";
 import RecoilRootWrapper from "./Components/RecoilRootWrapper";
 import LoadProducts from "./Components/LoadProducts";
+import Whatsapp from "./Components/Whatsapp";
 
 
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <LoadProducts  />
           <Nav  />
           {children}
+          <Whatsapp  />
         </body>
       </RecoilRootWrapper>
     </html>

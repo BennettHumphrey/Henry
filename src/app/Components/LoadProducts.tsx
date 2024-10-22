@@ -2,13 +2,13 @@
 
 import React, { useEffect } from 'react'
 import { productsState } from '../Recoil';
-import { useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { Product } from '@/sanity/schemaTypes/product';
 import { getProducts } from '@/sanity/lib/products';
 
 const LoadProducts = () => {
 
-    const [products, setProducts] = useRecoilState(productsState);
+    const setProducts = useSetRecoilState(productsState);
 
 
 
