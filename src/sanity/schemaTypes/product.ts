@@ -4,11 +4,20 @@ export interface Product {
   title: string;
   path: string;
   description: string;
-  productImages: { asset: { _ref: string; _type: string } }[];
+  productImages: {
+    image: { asset: { _ref: string; _type: string } };
+    color: string;
+  }[];
   price: number;
   availableSizes: string[];
   technicalInfo: string;
 }
+
+export interface Image {
+  image: { asset: { _ref: string; _type: string } };
+    color: string;
+}
+
 
 
 
@@ -38,10 +47,19 @@ export const productSchema = defineType({
     defineField({
       name: 'productImages',
       title: 'Imágenes del Producto',
-      description: 'Agrega imágenes para el producto.',
+      description: 'Agrega imágenes para el producto con una descripción.',
       type: 'array',
-      of: [{ type: 'image' }],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'image', type: 'image', title: 'Imagen' },
+            { name: 'color', type: 'string', title: 'Color' },
+          ],
+        },
+      ],
     }),
+    
     defineField({
       name: 'price',
       title: 'Precio',

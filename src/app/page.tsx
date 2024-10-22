@@ -8,22 +8,15 @@ import { Product } from '@/sanity/schemaTypes/product';
 import Link from 'next/link';
 import { productsState } from './Recoil';
 
+export const getRandomCat = () => {
+  return Math.floor(Math.random() * 41) + 800;
+};
+
 const Home = () => {
   const [products, setProducts] = useRecoilState(productsState);
 
-  useEffect(() => {
-    // Fetch products and set the Recoil state
-    const fetchProducts = async () => {
-      const productsData: Product[] = await getProducts();
-      setProducts(productsData);
-    };
 
-    fetchProducts();
-  }, [setProducts]);
 
-  const getRandomCat = () => {
-    return Math.floor(Math.random() * 41) + 800;
-  };
 
   useEffect(() => {
     console.log('products recoil state: ', products)
