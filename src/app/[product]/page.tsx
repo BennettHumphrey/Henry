@@ -58,8 +58,8 @@ const ProductDetails: FC<Props> = ({ params }) => {
   return (
     <div className="relative top-[100px] pb-52 text-black">
       {product ? (
-        <div className="flex flex-col justify-center items-center">
-          <div className="w-[90vw] h-[90vw]">
+        <div className="flex flex-col justify-center items-center md:flex-row md:justify-around md:px-10">
+          <div className="w-[90vw] h-[90vw] md:w-[60vw] md:h-[50vw] lg:w-[50vw] lg:h-[40vw] lg:max-w-[80vh]">
             <Carousel pauseOnHover slideInterval={6000}>
               {correctColorProducts.map((imageObj: Image, index) => (
                 <div key={index} className="h-full w-full">
@@ -72,41 +72,45 @@ const ProductDetails: FC<Props> = ({ params }) => {
               ))}
             </Carousel>
           </div>
-          <div className="w-full px-8">
-            <h2 className="font-bold text-3xl pb-4 -ml-3">{product.title}</h2>
-            <p className="pb-8">
-              <span className="font-bold mr-8">Precio:</span>
-              S/ {product.price}
-            </p>
-            <h3 className="pb-4">
-              <span className="underline">Color</span>: {currentColor}
-            </h3>
-            <div className="flex flex-wrap gap-4 pb-8">
-              {uniqueColorImages.map((imageObj: Image, index) => (
-                <div
-                  className="w-16 h-16"
-                  key={index}
-                  onClick={() => setCurrentColor(imageObj.color)}
-                >
-                  <img
-                    src={urlFor(imageObj.image).url() || ""}
-                    alt={`Color variant ${imageObj.color}`}
-                    className="w-full h-full rounded-md"
-                  />
-                </div>
-              ))}
+          <div className="w-full px-8 flex flex-col sm:flex-row md:flex-col lg:flex-row lg:items-start lg:px-5 md:w-[40vw] md:pl-0 pr-4 items-center justify-around">
+            <div>
+              <h2 className="font-bold text-3xl pb-4 -ml-3">{product.title}</h2>
+              <p className="pb-8">
+                <span className="font-bold mr-8">Precio:</span>
+                S/ {product.price}
+              </p>
+              <h3 className="pb-4">
+                <span className="underline">Color</span>: {currentColor}
+              </h3>
+              <div className="flex flex-wrap gap-4 pb-8">
+                {uniqueColorImages.map((imageObj: Image, index) => (
+                  <div
+                    className="w-16 h-16"
+                    key={index}
+                    onClick={() => setCurrentColor(imageObj.color)}
+                  >
+                    <img
+                      src={urlFor(imageObj.image).url() || ""}
+                      alt={`Color variant ${imageObj.color}`}
+                      className="w-full h-full rounded-md"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="flex gap-3 pb-8">
+                {product.availableSizes.map((size, index) => (
+                  <div className="p-2 border border-black" key={index}>
+                    <p>{size}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="flex gap-3 pb-8">
-              {product.availableSizes.map((size, index) => (
-                <div className="p-2 border border-black" key={index}>
-                  <p>{size}</p>
-                </div>
-              ))}
+            <div>
+              <h3 className="text-xl underline tracking-wider">DESCRIPCIÓN</h3>
+              <p className="pb-8">{product.description}</p>
+              <h3 className="text-xl underline tracking-wider">FICHA TÉCNICA</h3>
+              <p>{product.technicalInfo}</p>
             </div>
-            <h3 className="text-xl underline tracking-wider">DESCRIPCIÓN</h3>
-            <p className="pb-8">{product.description}</p>
-            <h3 className="text-xl underline tracking-wider">FICHA TÉCNICA</h3>
-            <p>{product.technicalInfo}</p>
           </div>
         </div>
       ) : (

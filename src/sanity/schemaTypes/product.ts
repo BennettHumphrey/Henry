@@ -23,7 +23,7 @@ export interface Image {
 
 export const productSchema = defineType({
   name: 'product',
-  title: 'Producto',
+  title: 'Productos',
   type: 'document',
   fields: [
     defineField({
@@ -35,7 +35,7 @@ export const productSchema = defineType({
     defineField({
       name: 'path',
       title: 'Ruta del Producto',
-      description: 'La ruta no puede tener espacios ni mayúsculas.',
+      description: 'Que veas en el barra de direcciones arriba. No puede tener espacios ni mayúsculas.',
       type: 'string',
     }),
     defineField({
@@ -54,7 +54,7 @@ export const productSchema = defineType({
           type: 'object',
           fields: [
             { name: 'image', type: 'image', title: 'Imagen' },
-            { name: 'color', type: 'string', title: 'Color' },
+            { name: 'color', type: 'string', description: 'Mismos colores debe ser escrito exactamente igual', title: 'Color' },
           ],
         },
       ],
