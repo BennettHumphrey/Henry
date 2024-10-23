@@ -7,11 +7,11 @@ import { navSocials } from "./data";
 const Nav = () => {
   return (
     <div className="flex flex-row z-50 w-screen bg-bg-light border-b border-b-gray-300 fixed justify-between">
-      <div className="w-full">
+      <Link href={'/'} className="w-full">
         <h1 className="text-2xl tracking-widest font-bold text-center sm:pl-4">
           HENRY
         </h1>
-      </div>
+      </Link>
       <div className="flex justify-center w-full">
         {/* <div className="flex items-center pl-4 gap-4 md:gap-[5vw] md:pl-0">
           {navOptions.map((nav, index) => (
