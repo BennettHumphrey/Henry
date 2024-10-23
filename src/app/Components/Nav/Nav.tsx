@@ -25,7 +25,7 @@ const Nav = () => {
           {navSocials.map((social, index) => (
             <Link className="group" key={index} target="_blank" href={'https://bennetthumphrey.com/'}>
               <div
-                className={`fill-text-text-dark duration-300 group-hover:scale-125 w-6 h-6 
+                className={`fill-text-dark duration-300 group-hover:scale-125 w-6 h-6 
                   ${social.name === 'instagram' && "group-hover:fill-[#dc3978]"} 
                   ${social.name === 'facebook' && "group-hover:fill-[#106aff]"}
                   ${social.name === 'whatsapp' && "group-hover:fill-green-400"}

@@ -4,6 +4,7 @@ import Nav from "./Components/Nav/Nav";
 import RecoilRootWrapper from "./Components/RecoilRootWrapper";
 import LoadProducts from "./Components/LoadProducts";
 import Whatsapp from "./Components/Whatsapp";
+import Footer from "./Components/Footer";
 
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({
           <Nav  />
           {children}
           <Whatsapp  />
+          <Footer  />
         </body>
       </RecoilRootWrapper>
     </html>

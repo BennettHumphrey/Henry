@@ -23,7 +23,7 @@ const WhatsappLogo = () => {
 
 const Whatsapp = () => {
   return (
-    <div className='fixed bottom-2 right-2 w-12 h-12 md:w-16 md:h-16 bg-white shadow-lg hover:scale-110 duration-300 hover:right-4 hover:bottom-4 rounded-full p-1'>
+    <div className='fixed bottom-2 right-2 w-12 h-12 md:w-16 md:h-16 bg-white shadow-lg hover:scale-110 hover:bg-gray-200 duration-300 hover:right-4 hover:bottom-4 rounded-full p-1'>
         <Link href={'/'} className='fill-green-400 ' >
             <WhatsappLogo  />
         </Link>
